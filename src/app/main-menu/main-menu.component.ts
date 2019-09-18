@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-main-menu',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor() { }
+  projects = [];
+
+  constructor() {
+
+  }
 
   ngOnInit() {
+    const urlToGetAllProjects = 'http://localhost:8000/project/';
+    let responseData = [];
+    axios.get(urlToGetAllProjects)
+      .then(response => {
+        this.projects = response.data;
+        console.log(this.projects);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    //this.projects = responseData;
+
   }
 
 }
