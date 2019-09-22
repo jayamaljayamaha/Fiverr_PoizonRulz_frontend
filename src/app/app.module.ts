@@ -13,7 +13,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { LoginComponent } from './login/login.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import {DbServiceService} from './db-service.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { HttpClientModule }    from '@angular/common/http';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DbServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
