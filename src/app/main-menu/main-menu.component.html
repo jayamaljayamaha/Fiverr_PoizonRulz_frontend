@@ -1,17 +1,17 @@
-<br>
-<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-bottom: 4%;">
-  <img src="../assets/images/4.jpg" class="card-img-top" alt="...">
+
+<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-bottom: 4%;" *ngFor="let project of projects">
+  <img src="../assets/images/{{project.projectImage}}" class="card-img-top" alt="...">
   <div class="card-body">
 
     <div class="row">
       <div class="col">
-        <h5 class="card-title">Michael Moore</h5>
+        <h5 class="card-title">{{project.projectName}}</h5>
         <h5 class="text-left">$120/$500</h5>
         <p class="card-text">30 Participants</p>
 
       </div>
       <div class="col text-right">
-        <p class="card-text">Likes by 56 people</p>
+        <p class="card-text">Likes by {{project.likes}} people</p>
         <button href="#" class="btn btn-danger mr-1">Like</button>
         <button href="#" class="btn btn-primary">See Project</button>
       </div>
@@ -19,26 +19,26 @@
     </div>
   </div>
 </div>
-<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-bottom: 4%;">
-    <img src="../assets/images/4.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
+<!--<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-bottom: 4%;">-->
+    <!--<img src="../assets/images/4.jpg" class="card-img-top" alt="...">-->
+    <!--<div class="card-body">-->
 
-      <div class="row">
-        <div class="col">
-          <h5 class="card-title">Michael Moore</h5>
-          <h5 class="text-left">$120/$500</h5>
-          <p class="card-text">30 Participants</p>
+      <!--<div class="row">-->
+        <!--<div class="col">-->
+          <!--<h5 class="card-title">{{project.projectName}}</h5>-->
+          <!--<h5 class="text-left">$120/$500</h5>-->
+          <!--<p class="card-text">30 Participants</p>-->
 
-        </div>
-        <div class="col text-right">
-          <p class="card-text">Likes by 56 people</p>
-          <button href="#" class="btn btn-danger mr-1">Like</button>
-          <button href="#" class="btn btn-primary">See Project</button>
-        </div>
+        <!--</div>-->
+        <!--<div class="col text-right">-->
+          <!--<p class="card-text">Likes by {{project.likes}} people</p>-->
+          <!--<button href="#" class="btn btn-danger mr-1">Like</button>-->
+          <!--<button href="#" class="btn btn-primary">See Project</button>-->
+        <!--</div>-->
 
-      </div>
-    </div>
-  </div>
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
 <!--<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-bottom: 4%;" *ngFor="let project of projects">-->
   <!--<img src="../assets/images/{{project.projectImage}}" class="card-img-top" alt="...">-->

@@ -70,7 +70,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "SpectreFrontEnd:build",
-            "proxyConfig": "../SpectreBackEnd/proxy.conf.json"
+//            "proxyConfig": "../SpectreBackEnd/proxy.conf.json"
           },
           "configurations": {
             "production": {
