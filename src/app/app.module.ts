@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import {DbServiceService} from './db-service.service';
+import { CallbackComponent } from './callback/callback.component';
+import { ExternalApiComponent } from './external-api/external-api.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {DbServiceService} from './db-service.service';
     ProfileComponent,
     TopMenuComponent,
     LoginComponent,
-    NavBarComponent
+    NavBarComponent,
+    CallbackComponent,
+    ExternalApiComponent
   ],
   imports: [
     BrowserModule,
