@@ -25,11 +25,13 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css"
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/aos/dist/aos.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+              "node_modules/aos/dist/aos.js"
             ]
           },
           "configurations": {
@@ -67,7 +69,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "SpectreFrontEnd:build"
+            "browserTarget": "SpectreFrontEnd:build",
+            "proxyConfig": "../SpectreBackEnd/proxy.conf.json"
           },
           "configurations": {
             "production": {
