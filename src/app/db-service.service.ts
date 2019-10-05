@@ -16,4 +16,10 @@ export class DbServiceService {
     return of(axios.get(urlToGetAllProjects)).pipe(
       switchMap(response => response));
   }
+
+  public putNewLike(projectName, likeCont): Observable<any>  {
+    const urlToUpdateLikes = 'http://localhost:8000/project/' + projectName + '/likes/' + likeCont;
+    return of(axios.put(urlToUpdateLikes)).pipe(
+      switchMap(response => response));
+  }
 }

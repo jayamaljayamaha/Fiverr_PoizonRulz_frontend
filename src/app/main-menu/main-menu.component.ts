@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as AOS from 'aos';
 import axios from 'axios';
 import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
@@ -12,7 +12,6 @@ import {DbServiceService} from '../db-service.service';
 export class MainMenuComponent implements OnInit {
 
   projects = [];
-  mostPopularProjects = [];
 
   constructor(private dbService: DbServiceService) {
 
@@ -27,34 +26,24 @@ export class MainMenuComponent implements OnInit {
 
     this.dbService.getAllProjects().subscribe(response => {
       this.projects = response.data;
-      //console.log(response);
     }, error => {
       console.log(error);
     });
 
-    // const urlToGetAllProjects = 'http://localhost:8000/project/';
-    // let responseData = [];
-    // axios.get(urlToGetAllProjects)
-    //   .then(response => {
-    //     this.projects = response.data;
-    //     console.log(this.projects);
-    //     let i
-    //     for (i in this.projects) {
-    //       //console.log(this.projects[i]);
-    //       for (let k in this.projects) {
-    //         k = parseInt(k) + parseInt(i);
-    //         console.log(this.projects.length)
-    //         console.log(this.projects[k]);
-    //         if (parseInt(k) === this.projects.length - 1) {
-    //           break;
-    //         }
-    //       }
-    //     }
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+  }
 
-
+  putLike(projectName, likes) {
+    this.dbService.putNewLike(projectName, likes).subscribe(response => {
+      console.log(response.status);
+      if (response.status === 200) {
+        for (var project of this.projects) {
+          if (project.projectName === projectName) {
+            project.likes++;
+          }
+        }
+      } else {
+        alert('Cannot process');
+      }
+    });
   }
 }
