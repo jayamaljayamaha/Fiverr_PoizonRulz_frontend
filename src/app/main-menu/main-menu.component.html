@@ -1,41 +1,40 @@
-<br>
-<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-bottom: 4%;">
+<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-bottom: 4%;" *ngFor="let project of projects">
   <img src="../assets/images/4.jpg" class="card-img-top" alt="...">
   <div class="card-body">
 
     <div class="row">
       <div class="col">
-        <h5 class="card-title">Michael Moore</h5>
+        <h5 class="card-title">{{project.user_name}}</h5>
         <h5 class="text-left">$120/$500</h5>
         <p class="card-text">30 Participants</p>
-       
+
       </div>
       <div class="col text-right">
-        <p class="card-text">Likes by 56 people</p>
-        <button href="#" class="btn btn-danger mr-1">Like</button>
+        <p class="card-text">Likes by {{project.score_comment_react}} people</p>
+        <button href="#" class="btn btn-danger mr-1" (click)="addLike(project)">Like</button>
         <button href="#" class="btn btn-primary">See Project</button>
       </div>
 
     </div>
   </div>
 </div>
-<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-bottom: 4%;">
-    <img src="https://firebasestorage.googleapis.com/v0/b/royalspectreproject.appspot.com/o/6.jpg?alt=media&token=57f0fd2a-30f4-469c-8371-d30e66a47975" class="card-img-top" alt="...">
-    <div class="card-body">
-  
-      <div class="row">
-        <div class="col">
-          <h5 class="card-title">Michael Moore</h5>
-          <h5 class="text-left">$120/$500</h5>
-          <p class="card-text">30 Participants</p>
-         
-        </div>
-        <div class="col text-right">
-          <p class="card-text">Likes by 56 people</p>
-          <button href="#" class="btn btn-danger mr-1">Like</button>
-          <button href="#" class="btn btn-primary">See Project</button>
-        </div>
-  
-      </div>
-    </div>
-  </div>
+<!--<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-bottom: 4%;">-->
+<!--    <img src="https://firebasestorage.googleapis.com/v0/b/royalspectreproject.appspot.com/o/6.jpg?alt=media&token=57f0fd2a-30f4-469c-8371-d30e66a47975" class="card-img-top" alt="...">-->
+<!--    <div class="card-body">-->
+
+<!--      <div class="row">-->
+<!--        <div class="col">-->
+<!--          <h5 class="card-title">Michael Moore</h5>-->
+<!--          <h5 class="text-left">$120/$500</h5>-->
+<!--          <p class="card-text">30 Participants</p>-->
+
+<!--        </div>-->
+<!--        <div class="col text-right">-->
+<!--          <p class="card-text">Likes by 56 people</p>-->
+<!--          <button href="#" class="btn btn-danger mr-1">Like</button>-->
+<!--          <button href="#" class="btn btn-primary">See Project</button>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
