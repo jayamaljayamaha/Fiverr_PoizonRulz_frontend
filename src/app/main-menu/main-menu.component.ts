@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import * as AOS from 'aos';
 import {ApiService} from '../api.service';
 import {AuthService} from "../auth.service";
+import {Observable, Subject} from "rxjs";
 
 @Component({
   selector: 'app-main-menu',
@@ -34,24 +35,41 @@ export class MainMenuComponent implements OnInit {
       console.log(error);
     });
 
-    // this.apiService.putNewLike().subscribe(data => {
-    //   console.log(data);
-    // });
   }
 
   addLike(project) {
-    console.log(project);
     let reactedUsers = project.reacted_users;
-    for (const reactedUser of reactedUsers) {
-      if (reactedUser === this.userEmail) {
+    this.checkLikedUsers(project, reactedUsers).subscribe(status => {
+      if (status) {
         alert('You already liked this project');
         return;
+      } else {
+        reactedUsers.push(this.userEmail);
+        this.apiService.putNewLike(project._id, project.score_comment_react, reactedUsers).subscribe(data => {
+          console.log(data);
+        });
+        project.score_comment_react = project.score_comment_react + 1;
+      }
+    });
+  }
+
+  checkLikedUsers(project, reactedUsers): Observable<any> {
+    for (const reactedUser of reactedUsers) {
+      if (reactedUser === this.userEmail) {
+        const boolObservable = new Observable(observer => {
+          setTimeout(() => {
+            observer.next(true);
+          }, 10);
+        });
+        return boolObservable;
       }
     }
-    reactedUsers.push(this.userEmail);
-    this.apiService.putNewLike(project._id, project.score_comment_react, reactedUsers).subscribe(data => {
-      console.log(data);
+    const boolObservable = new Observable(observer => {
+      setTimeout(() => {
+        observer.next(false);
+      }, 10);
     });
-    project.score_comment_react = project.score_comment_react + 1;
+    return boolObservable;
   }
+
 }
