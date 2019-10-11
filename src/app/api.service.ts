@@ -19,9 +19,12 @@ export class ApiService {
     return this.http.get(urlToGetAllProjects);
   }
 
-  public putNewLike(projectId, likeCont): Observable<any> {
+  public putNewLike(projectId, likeCont, reactedUsers): Observable<any> {
     const urlToUpdateLikes = 'http://localhost:8000/project/' + projectId + '/likes/' + likeCont;
-    return this.http.put(urlToUpdateLikes, {});
+    const payLoad = {
+      reactedUsrs: reactedUsers
+    };
+    return this.http.put(urlToUpdateLikes, payLoad);
   }
 
 
